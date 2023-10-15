@@ -77,6 +77,8 @@
 	box-sizing: border-box;
 	padding: 0;
 	margin: 0;
+	transition: all 0.65s ease;
+	text-decoration: none;
 }
 
 html,
@@ -91,7 +93,5 @@ a {
 }
 
 ul {
-	margin: 0;
-	padding: 0;
 	list-style-type: none;
 }
