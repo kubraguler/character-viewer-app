@@ -1,12 +1,12 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import Image from "next/image";
+import { useEffect, useState } from "react";
+import Character from "@/components/Character";
 
 import styles from "./page.module.scss";
 
 const baseURL = "https://rickandmortyapi.com/graphql";
 
-export default function Home() {
+const Home: React.FC = () => {
 	const [characters, setCharacters] = useState<any[]>([]);
 
 	useEffect(() => {
@@ -19,18 +19,7 @@ export default function Home() {
 							name
 							status
 							species
-							gender
 							image
-							origin {
-								id
-								name
-								type
-							}
-							location {
-								id
-								name
-								type
-							}
             }
           }
         }
@@ -68,30 +57,19 @@ export default function Home() {
 				<ul className={styles["character-list"]}>
 					{characters.map((character) => (
 						<li key={character.id} className={styles.character}>
-							<p>
-								<b>Name:</b> {character.name}
-							</p>
-							<p>
-								<b>Status:</b> {character.status}
-							</p>
-							<p>
-								<b>Species:</b> {character.species}
-							</p>
-							<p>
-								<b>Gender:</b> {character.gender}
-							</p>
-							{character.image && (
-								<Image
-									src={character.image}
-									width={300}
-									height={300}
-									alt="Character image"
-								/>
-							)}
+							<Character
+								id={character.id}
+								name={character.name}
+								status={character.status}
+								species={character.species}
+								image={character.image}
+							/>
 						</li>
 					))}
 				</ul>
 			</div>
 		</main>
 	);
-}
+};
+
+export default Home;
