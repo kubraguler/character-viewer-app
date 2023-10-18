@@ -2,6 +2,8 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
+import styles from "./[id].module.scss";
+
 const baseURL = "https://rickandmortyapi.com/graphql";
 
 const CharacterDetailPage: React.FC = () => {
@@ -21,6 +23,19 @@ const CharacterDetailPage: React.FC = () => {
 						species
 						gender
 						image
+						origin {
+							id
+							name
+						}
+						location {
+							id
+							name
+						}
+						episode {
+							id
+							name
+							episode
+						}
 					}
         }
       `;
@@ -55,27 +70,23 @@ const CharacterDetailPage: React.FC = () => {
 		return <p>Loading...</p>;
 	}
 
+	// TODO: Show episodes etc
 	return (
-		<section>
-			<h1>Character Detail</h1>
-			<p>
-				<b>Name:</b> {character.name}
-			</p>
-			<p>
-				<b>Status:</b> {character.status}
-			</p>
-			<p>
-				<b>Species:</b> {character.species}
-			</p>
-			<p>
-				<b>Gender:</b> {character.gender}
-			</p>
+		<section className={styles["character-detail"]}>
 			<Image
+				className={styles["character-img"]}
 				src={character.image}
 				width={300}
 				height={300}
 				alt="Character image"
 			/>
+			<h1>Character Detail</h1>
+			<p>{character.name}</p>
+			<p>{character.status}</p>
+			<p>{character.species}</p>
+			<p>{character.gender}</p>
+			<p>{character.origin.name}</p>
+			<p>{character.location.name}</p>
 		</section>
 	);
 };
