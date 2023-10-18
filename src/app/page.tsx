@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import Character from "@/components/Character";
+import Character from "@/components/Character/Character";
 
 import styles from "./page.module.scss";
 
@@ -58,11 +58,11 @@ const Home: React.FC = () => {
 					{characters.map((character) => (
 						<li key={character.id} className={styles.character}>
 							<Character
+								image={character.image}
 								id={character.id}
 								name={character.name}
 								status={character.status}
 								species={character.species}
-								image={character.image}
 							/>
 						</li>
 					))}
