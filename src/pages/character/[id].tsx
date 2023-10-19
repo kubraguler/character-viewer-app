@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { fetchCharacterDetails } from "@/api";
 import Image from "next/image";
-import { fetchCharacters } from "@/api";
 import Loading from "@/components/Loading/Loading";
 
 import styles from "./[id].module.scss";
-
-const baseURL = "https://rickandmortyapi.com/graphql";
 
 const CharacterDetailPage: React.FC = () => {
 	const router = useRouter();
@@ -15,57 +13,15 @@ const CharacterDetailPage: React.FC = () => {
 
 	useEffect(() => {
 		if (id) {
-			const getData = async () => {
-				const query = `
-        {
-          character(id: ${id}) {
-						id
-						name
-						status
-						species
-						gender
-						image
-						origin {
-							id
-							name
-						}
-						location {
-							id
-							name
-						}
-						episode {
-							id
-							name
-							episode
-						}
-					}
-        }
-      `;
-				try {
-					const response = await fetch(baseURL, {
-						method: "POST",
-						headers: {
-							"Content-Type": "application/json"
-						},
-						body: JSON.stringify({ query })
-					});
-
-					if (!response.ok) {
-						throw new Error(`HTTP error! Status: ${response.status}`);
-					}
-
-					const data = await response.json();
-					if (data.data && data.data.character) {
-						setCharacter(data.data.character);
-					}
-				} catch (error) {
-					console.error("Error fetching data:", error);
-				}
-			};
-
-			getData();
+			const characterId = String(id);
+			fetchCharacter(characterId);
 		}
 	}, [id]);
+
+	const fetchCharacter = async (id: string) => {
+		const characters = await fetchCharacterDetails(id);
+		setCharacter(characters);
+	};
 
 	if (!character) {
 		return <Loading />;
