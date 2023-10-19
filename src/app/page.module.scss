@@ -14,7 +14,7 @@
 }
 
 .character {
-	padding: 8px 12px;
+	padding: 8px 12px 20px 12px;
 	border: 1px solid #e3e3e3;
 	border-radius: 4px;
 	box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 4px;
@@ -36,11 +36,11 @@
 			grid-template-columns: repeat(1, 1fr);
 		}
 
-		@media (min-width: 600px) {
+		@media (min-width: 768px) {
 			grid-template-columns: repeat(2, 1fr);
 		}
 
-		@media (min-width: 900px) {
+		@media (min-width: 1024px) {
 			grid-template-columns: repeat(3, 1fr);
 		}
 	}

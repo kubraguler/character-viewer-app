@@ -29,19 +29,40 @@ const CharacterDetailPage: React.FC = () => {
 
 	return (
 		<section className={styles["character-detail"]}>
-			<Image
-				className={styles["character-img"]}
-				src={character.image}
-				width={300}
-				height={300}
-				alt="Character image"
-			/>
-			<p>{character.name}</p>
-			<p>{character.status}</p>
-			<p>{character.species}</p>
-			<p>{character.gender}</p>
-			<p>{character.origin.name}</p>
-			<p>{character.location.name}</p>
+			<div className={styles["character-card"]}>
+				<Image
+					className={styles["character-img"]}
+					src={character.image}
+					width={300}
+					height={300}
+					alt="Character image"
+				/>
+				<h2 className={styles["character-name"]}>{character.name}</h2>
+				<div className={styles["character-info"]}>
+					<p>
+						{character.status} ~ {character.species} ~ {character.gender}
+					</p>
+					<p>
+						<b>Origin: </b>
+						{character.origin.name}
+					</p>
+					<p className={styles["character-location"]}>
+						<b>Location: </b>
+						{character.location.name}
+					</p>
+					<hr />
+					<h3 className={styles["episode-title"]}>
+						<b>Episodes</b>
+					</h3>
+					<ul className={styles["episode-list"]}>
+						{character.episode.map((item: any) => (
+							<li key={item.id} className={styles["episode-item"]}>
+								{item.episode} - <i>{item.name}</i>
+							</li>
+						))}
+					</ul>
+				</div>
+			</div>
 		</section>
 	);
 };
