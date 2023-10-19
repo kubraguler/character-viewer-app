@@ -1,6 +1,8 @@
-import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import Image from "next/image";
+import { fetchCharacters } from "@/api";
+import Loading from "@/components/Loading/Loading";
 
 import styles from "./[id].module.scss";
 
@@ -65,12 +67,10 @@ const CharacterDetailPage: React.FC = () => {
 		}
 	}, [id]);
 
-	// TODO: Add Loading component
 	if (!character) {
-		return <p>Loading...</p>;
+		return <Loading />;
 	}
 
-	// TODO: Show episodes etc
 	return (
 		<section className={styles["character-detail"]}>
 			<Image
@@ -80,7 +80,6 @@ const CharacterDetailPage: React.FC = () => {
 				height={300}
 				alt="Character image"
 			/>
-			<h1>Character Detail</h1>
 			<p>{character.name}</p>
 			<p>{character.status}</p>
 			<p>{character.species}</p>
