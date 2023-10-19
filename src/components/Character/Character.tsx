@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import styles from "./Character.module.scss";
 
-interface CharacterProps {
+export interface CharacterProps {
 	id: number;
 	name: string;
 	status: string;
