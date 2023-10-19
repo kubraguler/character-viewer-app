@@ -31,11 +31,21 @@ const Character: React.FC<CharacterProps> = ({
 				/>
 			)}
 			<p className={styles["character-name"]}>{name}</p>
-			<div className={styles["character-status"]}>
-				<span className={styles["character-status__icon"]}></span>
-				{status}
+			<div className={styles["character-detail"]}>
+				<span
+					className={`${styles["character-status__icon"]} ${
+						status === "Alive"
+							? styles["alive"]
+							: status === "Dead"
+							? styles["dead"]
+							: styles["unknown"]
+					}`}
+				></span>
+				<span>
+					{status} ~ {species}
+				</span>
 			</div>
-			<p className={styles["character-species"]}>{species}</p>
+			<span className={styles["character-species"]}></span>
 		</Link>
 	);
 };
