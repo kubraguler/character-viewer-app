@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Character Viewer App 🧝🏽‍♀️ 🧟‍♀️ 🧌 🧜🏽‍♀️ 🧙🏽
+
+### Welcome to the Character Viewer App
+
+This is a character listing application that allows listing [The Rick and Morty](https://rickandmortyapi.com/) api with using [GraphQL](https://graphql.org/).
+
+## Features
+
+- **Character Listing:** This app provides you with a comprehensive list of available characters
+- **View Character Detail:** Character detail page offers an in-depth look into their specific details, including their location, origin, and episodes they've appeared in.
+- **Search:** The built-in search functionality allows you to quickly locate character cards by typing their names.
+- **Sort:** Sort characters by their status, including "Alive," "Dead," or "Unknown."
+
+## Technologies Used
+
+- **React:** [React](https://react.dev/) is a library for web and native user interfaces
+
+- **Next.js:** [Next.js](https://nextjs.org/) enables you to create full-stack Web applications by extending the latest React features, and integrating powerful Rust-based JavaScript tooling for the fastest builds.
+
+- **TypeScript:** [TypeScript](https://www.typescriptlang.org/) is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.
+
+- **Vercel:** [Vercel](https://vercel.com/) is a cloud platform that enables developers to host websites and web services that deploy instantly, scale automatically, and require no supervision.
 
 ## Getting Started
 
-First, run the development server:
+- **Clone the repository:** `git clone https://github.com/your-username/character-viewer-app.git`
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Install:** `cd character-viewer-app` then `npm install`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Running:** run `npm run dev`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Building:** run `npm run build`
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Demo: [kubraguler-character-viewer.app](https://kubraguler-character-viewer.vercel.app/)
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+#### Explore, discover, and stay organized with the **Character Listing App**. Happy character hunting! 🎉
